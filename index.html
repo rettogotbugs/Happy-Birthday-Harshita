@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Donaaa!</title>
+    <title>Happy Birthday Sister!</title>
     <style>
         * {
             margin: 0;
@@ -217,25 +217,8 @@
             font-size: 0.9rem;
             text-align: center;
             margin-bottom: 5px;
-            background-image: url('img2.jpg');
             background-size: cover;
             background-position: center;
-        }
-
-        .photo-placeholder:nth-child(1) {
-            background-image: url('img2.jpg');
-        }
-
-        .photo-placeholder.baby-photo {
-            background-image: url('img1.jpg');
-        }
-
-        .photo-placeholder.selfie-3 {
-            background-image: url('img3.jpg');
-        }
-
-        .photo-placeholder.selfie-4 {
-            background-image: url('img4.jpg');
         }
 
         .photo-caption {
@@ -282,22 +265,6 @@
             background-position: center;
         }
 
-        .slide-photo.slide-img-2 {
-            background-image: url('img2.jpg');
-        }
-
-        .slide-photo.slide-img-1 {
-            background-image: url('img1.jpg');
-        }
-
-        .slide-photo.slide-img-3 {
-            background-image: url('img3.jpg');
-        }
-
-        .slide-photo.slide-img-4 {
-            background-image: url('img4.jpg');
-        }
-
         .slide-text {
             background: rgba(255, 255, 255, 0.8);
             padding: 20px;
@@ -327,27 +294,6 @@
         .next-btn:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 20px rgba(214, 51, 132, 0.4);
-        }
-
-        /* Audio Control */
-        .audio-control {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .audio-control:hover {
-            transform: scale(1.1);
         }
 
         /* Floating Hearts */
@@ -427,14 +373,6 @@
 <body>
     <div class="floating-hearts" id="floating-hearts"></div>
     
-    <button class="audio-control" onclick="toggleAudio()" id="audioBtn">🎵</button>
-    
-    <!-- Hidden audio element -->
-    <audio id="backgroundMusic" loop>
-        <source src="yung kai - wildflower.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    
     <div class="container">
         <!-- Page 1: Name Entry -->
         <div class="page active" id="page1">
@@ -475,7 +413,7 @@
             <div class="message-page">
                 <div class="heart">💕</div>
                 <h2>Listen <span id="userName">Beautiful</span>,<br>I want to say something.</h2>
-                <p style="font-size: 1rem; color: #8b5a83;">🎵 [Background music plays here] 🎵</p>
+                <p style="font-size: 1.4rem; color: #8b5a83;">You mean everything to me! 💖</p>
             </div>
             <button class="next-btn" onclick="nextPage()">→</button>
         </div>
@@ -490,15 +428,15 @@
                         <div class="photo-caption">My gorgeous girlfriend</div>
                     </div>
                     <div class="photo-frame">
-                        <div class="photo-placeholder selfie-3">Her Selfie 2<br>📷</div>
+                        <div class="photo-placeholder">Her Selfie 2<br>📷</div>
                         <div class="photo-caption">Always stunning</div>
                     </div>
                     <div class="photo-frame">
-                        <div class="photo-placeholder baby-photo">Baby Photo<br>👶</div>
+                        <div class="photo-placeholder">Baby Photo<br>👶</div>
                         <div class="photo-caption">Cute from day one</div>
                     </div>
                     <div class="photo-frame">
-                        <div class="photo-placeholder selfie-4">Her Selfie 3<br>📷</div>
+                        <div class="photo-placeholder">Her Selfie 3<br>📷</div>
                         <div class="photo-caption">Perfect as always</div>
                     </div>
                 </div>
@@ -512,19 +450,19 @@
                 <h2>Special Slideshow 🎬</h2>
                 <div class="slideshow-container">
                     <div class="slide active">
-                        <div class="slide-photo slide-img-2">Her Beautiful Selfie 📷</div>
+                        <div class="slide-photo">Her Beautiful Selfie 📷</div>
                         <div class="slide-text">You are the most amazing girlfriend anyone could ask for! 💕</div>
                     </div>
                     <div class="slide">
-                        <div class="slide-photo slide-img-1">Her Cute Baby Photo 👶</div>
+                        <div class="slide-photo">Her Cute Baby Photo 👶</div>
                         <div class="slide-text">You were adorable then, and you're absolutely stunning now! 🌟</div>
                     </div>
                     <div class="slide">
-                        <div class="slide-photo slide-img-3">Another Gorgeous Selfie 📷</div>
+                        <div class="slide-photo">Another Gorgeous Selfie 📷</div>
                         <div class="slide-text">Your smile lights up my world every single day! ✨</div>
                     </div>
                     <div class="slide">
-                        <div class="slide-photo slide-img-4">Perfect Selfie 📷</div>
+                        <div class="slide-photo">Perfect Selfie 📷</div>
                         <div class="slide-text">I love you more than words can express, my darling! 💖</div>
                     </div>
                 </div>
@@ -550,17 +488,9 @@
         let currentPage = 1;
         let totalPages = 7;
         let userName = '';
-        let audioPlaying = false;
         let slideshowInterval;
         let currentSlide = 0;
         let totalSlides = 4;
-        let backgroundMusic;
-
-        // Initialize audio
-        function initAudio() {
-            backgroundMusic = document.getElementById('backgroundMusic');
-            backgroundMusic.volume = 0.3; // Set volume to 30% for demo
-        }
 
         // Create floating hearts
         function createFloatingHearts() {
@@ -592,13 +522,6 @@
             }
             
             document.getElementById('userName').textContent = userName;
-            
-            // Try to start background music, but don't block navigation if it fails
-            if (!audioPlaying) {
-                playBackgroundMusic();
-            }
-            
-            // Always proceed to next page regardless of audio status
             nextPage();
         }
 
@@ -631,6 +554,55 @@
                 if (count >= target) {
                     counter.textContent = '999,999,999+';
                     clearInterval(counterInterval);
-                    
-                    // Show infinity symbol after counter
-                 
+                } else {
+                    counter.textContent = Math.floor(count).toLocaleString();
+                }
+            }, 30);
+        }
+
+        function startSlideshow() {
+            slideshowInterval = setInterval(() => {
+                const slides = document.querySelectorAll('.slide');
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % totalSlides;
+                slides[currentSlide].classList.add('active');
+            }, 3000);
+        }
+
+        function restartJourney() {
+            currentPage = 1;
+            currentSlide = 0;
+            
+            // Clear any intervals
+            if (slideshowInterval) {
+                clearInterval(slideshowInterval);
+            }
+            
+            // Reset all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Reset slideshow
+            document.querySelectorAll('.slide').forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === 0) slide.classList.add('active');
+            });
+            
+            // Show first page
+            document.getElementById('page1').classList.add('active');
+            
+            // Clear name input
+            document.getElementById('nameInput').value = '';
+            
+            // Reset love counter
+            document.getElementById('loveCounter').textContent = '0';
+        }
+
+        // Initialize floating hearts when page loads
+        window.addEventListener('load', () => {
+            createFloatingHearts();
+        });
+    </script>
+</body>
+    </html>

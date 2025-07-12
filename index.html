@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- The rest of the HTML content should go here; this is just a placeholder -->
+<html><head><title>Happy Birthday</title></head><body>Sample</body></html>
+                } else {
+                    counter.textContent = Math.floor(count).toLocaleString();
+                }
+            }, 50);
+        }
+
+        function startSlideshow() {
+            const slides = document.querySelectorAll('.slide');
+            currentSlide = 0;
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+            });
+            slides[currentSlide].classList.add('active');
+
+            slideshowInterval = setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % totalSlides;
+                slides[currentSlide].classList.add('active');
+            }, 4000);
+        }
+
+        function toggleAudio() {
+            if (!backgroundMusic) initAudio();
+            if (audioPlaying) {
+                backgroundMusic.pause();
+                audioPlaying = false;
+                document.getElementById('audioBtn').textContent = '🎵';
+            } else {
+                playBackgroundMusic();
+            }
+        }
+
+        function playBackgroundMusic() {
+            if (!backgroundMusic) initAudio();
+            backgroundMusic.play();
+            audioPlaying = true;
+            document.getElementById('audioBtn').textContent = '🔊';
+        }
+
+        function restartJourney() {
+            document.getElementById('page' + currentPage).classList.remove('active');
+            currentPage = 1;
+            document.getElementById('page' + currentPage).classList.add('active');
+            clearInterval(slideshowInterval);
+            const counter = document.getElementById('loveCounter');
+            counter.textContent = '0';
+            counter.style.display = 'block';
+        }
+
+        window.onload = () => {
+            createFloatingHearts();
+            initAudio();
+        };
+    </script>
+</body>
+</html>

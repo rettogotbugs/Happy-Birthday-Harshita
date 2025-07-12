@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Harshita!</title>
+    <title>Happy Birthday Sister!</title>
     <style>
         * {
             margin: 0;
@@ -356,6 +356,29 @@
             margin-bottom: 20px;
         }
 
+        /* New style for the custom birthday message */
+        .stylish-message {
+            font-family: 'Georgia', serif; /* A classic, elegant font */
+            font-size: 1.3rem; /* Slightly larger for emphasis */
+            color: #b22c6e; /* A deeper, richer pink/red */
+            line-height: 1.7;
+            margin: 25px 0;
+            font-style: italic; /* A nice touch for personal messages */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Subtle text shadow */
+            padding: 15px;
+            background: rgba(255, 240, 245, 0.7); /* Light pink background */
+            border-radius: 15px;
+            border: 1px solid rgba(214, 51, 132, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            animation: popIn 0.8s ease-out forwards; /* Animation to make it pop */
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            80% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
         .restart-btn {
             background: linear-gradient(45deg, #28a745, #20c997);
             color: white;
@@ -474,7 +497,12 @@
                 <div class="heart">💕</div>
                 <p>By going through this experience, you have both consented to <span style="color: #d63384;">officially love each other for the rest of eternity.</span></p>
                 <div class="heart">💖</div>
-                <p>May your special day be filled with happiness, laughter, and all the love in the world!</p>
+                <p class="stylish-message">
+                    Happy Birthday gurl!!! Hope you have a great year. 
+                    <br>Thanks for being a part of all my silly convos!! 🩷🫶🏿 
+                    <br>Hope we have a great time together 🫠. 
+                    <br>Once again, Happy Birthday **donaaaaaa**!
+                </p>
                 <br>
                 <button class="restart-btn" onclick="restartJourney()">Experience Again! 🔄</button>
             </div>
@@ -575,31 +603,4 @@
                 clearInterval(slideshowInterval);
             }
             
-            // Reset all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Reset slideshow
-            document.querySelectorAll('.slide').forEach((slide, index) => {
-                slide.classList.remove('active');
-                if (index === 0) slide.classList.add('active');
-            });
-            
-            // Show first page
-            document.getElementById('page1').classList.add('active');
-            
-            // Clear name input
-            document.getElementById('nameInput').value = '';
-            
-            // Reset love counter
-            document.getElementById('loveCounter').textContent = '0';
-        }
-
-        // Initialize floating hearts when page loads
-        window.addEventListener('load', () => {
-            createFloatingHearts();
-        });
-    </script>
-</body>
-</html>
+            /

@@ -207,7 +207,8 @@
         .photo-placeholder {
             width: 100%;
             height: 120px;
-            background: linear-gradient(45deg, #ffeef7, #ffe0f0);
+            /* Removed the placeholder gradient background */
+            /* background: linear-gradient(45deg, #ffeef7, #ffe0f0); */
             border: 2px dashed #f8bbd9;
             border-radius: 8px;
             display: flex;
@@ -217,8 +218,9 @@
             font-size: 0.9rem;
             text-align: center;
             margin-bottom: 5px;
-            background-size: cover;
-            background-position: center;
+            background-size: cover; /* This is key for images */
+            background-position: center; /* This is key for images */
+            background-repeat: no-repeat; /* Ensure images don't repeat */
         }
 
         .photo-caption {
@@ -251,7 +253,8 @@
         .slide-photo {
             width: 100%;
             height: 200px;
-            background: linear-gradient(45deg, #ffeef7, #ffe0f0);
+            /* Removed the placeholder gradient background */
+            /* background: linear-gradient(45deg, #ffeef7, #ffe0f0); */
             border: 2px dashed #f8bbd9;
             border-radius: 15px;
             display: flex;
@@ -261,8 +264,9 @@
             font-size: 1rem;
             text-align: center;
             margin-bottom: 15px;
-            background-size: cover;
-            background-position: center;
+            background-size: cover; /* This is key for images */
+            background-position: center; /* This is key for images */
+            background-repeat: no-repeat; /* Ensure images don't repeat */
         }
 
         .slide-text {
@@ -374,7 +378,6 @@
     <div class="floating-hearts" id="floating-hearts"></div>
     
     <div class="container">
-        <!-- Page 1: Name Entry -->
         <div class="page active" id="page1">
             <div class="name-entry">
                 <h1>🎂 Happy Birthday! 🎂</h1>
@@ -385,7 +388,6 @@
             </div>
         </div>
 
-        <!-- Page 2: Welcome Message -->
         <div class="page" id="page2">
             <div class="message-page">
                 <h2>This is a message from the person who <span style="color: #d63384;">loves you more</span> than anyone else in the world.</h2>
@@ -394,7 +396,6 @@
             <button class="next-btn" onclick="nextPage()">→</button>
         </div>
 
-        <!-- Page 3: Love Counter -->
         <div class="page" id="page3">
             <div class="message-page">
                 <p>How much I love you:</p>
@@ -408,7 +409,6 @@
             <button class="next-btn" onclick="nextPage()">→</button>
         </div>
 
-        <!-- Page 4: Sweet Message -->
         <div class="page" id="page4">
             <div class="message-page">
                 <div class="heart">💕</div>
@@ -418,25 +418,24 @@
             <button class="next-btn" onclick="nextPage()">→</button>
         </div>
 
-        <!-- Page 5: Photo Album -->
         <div class="page" id="page5">
             <div class="message-page">
                 <h2>You're So Beautiful 📸</h2>
                 <div class="photo-album">
                     <div class="photo-frame">
-                        <div class="photo-placeholder">Her Selfie 1<br>📷</div>
+                        <div class="photo-placeholder" style="background-image: url('img2.jpg');"></div>
                         <div class="photo-caption">My gorgeous girlfriend</div>
                     </div>
                     <div class="photo-frame">
-                        <div class="photo-placeholder">Her Selfie 2<br>📷</div>
+                        <div class="photo-placeholder" style="background-image: url('img3.jpg');"></div>
                         <div class="photo-caption">Always stunning</div>
                     </div>
                     <div class="photo-frame">
-                        <div class="photo-placeholder">Baby Photo<br>👶</div>
+                        <div class="photo-placeholder" style="background-image: url('img1.jpg');"></div>
                         <div class="photo-caption">Cute from day one</div>
                     </div>
                     <div class="photo-frame">
-                        <div class="photo-placeholder">Her Selfie 3<br>📷</div>
+                        <div class="photo-placeholder" style="background-image: url('img4.jpg');"></div>
                         <div class="photo-caption">Perfect as always</div>
                     </div>
                 </div>
@@ -444,25 +443,24 @@
             <button class="next-btn" onclick="nextPage()">→</button>
         </div>
 
-        <!-- Page 6: Slideshow -->
         <div class="page" id="page6">
             <div class="message-page">
                 <h2>Special Slideshow 🎬</h2>
                 <div class="slideshow-container">
                     <div class="slide active">
-                        <div class="slide-photo">Her Beautiful Selfie 📷</div>
+                        <div class="slide-photo" style="background-image: url('img2.jpg');"></div>
                         <div class="slide-text">You are the most amazing girlfriend anyone could ask for! 💕</div>
                     </div>
                     <div class="slide">
-                        <div class="slide-photo">Her Cute Baby Photo 👶</div>
+                        <div class="slide-photo" style="background-image: url('img1.jpg');"></div>
                         <div class="slide-text">You were adorable then, and you're absolutely stunning now! 🌟</div>
                     </div>
                     <div class="slide">
-                        <div class="slide-photo">Another Gorgeous Selfie 📷</div>
+                        <div class="slide-photo" style="background-image: url('img3.jpg');"></div>
                         <div class="slide-text">Your smile lights up my world every single day! ✨</div>
                     </div>
                     <div class="slide">
-                        <div class="slide-photo">Perfect Selfie 📷</div>
+                        <div class="slide-photo" style="background-image: url('img4.jpg');"></div>
                         <div class="slide-text">I love you more than words can express, my darling! 💖</div>
                     </div>
                 </div>
@@ -470,7 +468,6 @@
             <button class="next-btn" onclick="nextPage()">→</button>
         </div>
 
-        <!-- Page 7: Final Message -->
         <div class="page" id="page7">
             <div class="final-message">
                 <h1>🎉 Happy Birthday! 🎉</h1>
@@ -605,4 +602,4 @@
         });
     </script>
 </body>
-                                        </html>
+</html>

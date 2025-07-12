@@ -547,10 +547,11 @@
             }
             
             document.getElementById('userName').textContent = userName;
-            nextPage();
+            nextPage(); // Call nextPage to move to the second page
         }
 
         function nextPage() {
+            console.log("Moving to next page. Current page:", currentPage); // Debugging line
             if (currentPage < totalPages) {
                 document.getElementById('page' + currentPage).classList.remove('active');
                 currentPage++;
@@ -565,6 +566,8 @@
                 if (currentPage === 6) {
                     startSlideshow();
                 }
+            } else {
+                console.log("Reached last page."); // Debugging line for end of journey
             }
         }
 
@@ -594,13 +597,4 @@
             }, 3000);
         }
 
-        function restartJourney() {
-            currentPage = 1;
-            currentSlide = 0;
-            
-            // Clear any intervals
-            if (slideshowInterval) {
-                clearInterval(slideshowInterval);
-            }
-            
-            /
+        function restar

@@ -221,6 +221,26 @@
             background-position: center;
         }
 
+        .photo-placeholder.img1 {
+            background-image: url('https://raw.githubusercontent.com/rettogotbugs/Happy-Birthday-Harshita/main/img1.jpg');
+            color: transparent;
+        }
+
+        .photo-placeholder.img2 {
+            background-image: url('https://raw.githubusercontent.com/rettogotbugs/Happy-Birthday-Harshita/main/img2.jpg');
+            color: transparent;
+        }
+
+        .photo-placeholder.img3 {
+            background-image: url('https://raw.githubusercontent.com/rettogotbugs/Happy-Birthday-Harshita/main/img3.jpg');
+            color: transparent;
+        }
+
+        .photo-placeholder.img4 {
+            background-image: url('https://raw.githubusercontent.com/rettogotbugs/Happy-Birthday-Harshita/main/img4.jpg');
+            color: transparent;
+        }
+
         .photo-caption {
             font-size: 0.8rem;
             color: #8b5a83;
@@ -263,6 +283,26 @@
             margin-bottom: 15px;
             background-size: cover;
             background-position: center;
+        }
+
+        .slide-photo.slide-img1 {
+            background-image: url('https://raw.githubusercontent.com/rettogotbugs/Happy-Birthday-Harshita/main/img1.jpg');
+            color: transparent;
+        }
+
+        .slide-photo.slide-img2 {
+            background-image: url('https://raw.githubusercontent.com/rettogotbugs/Happy-Birthday-Harshita/main/img2.jpg');
+            color: transparent;
+        }
+
+        .slide-photo.slide-img3 {
+            background-image: url('https://raw.githubusercontent.com/rettogotbugs/Happy-Birthday-Harshita/main/img3.jpg');
+            color: transparent;
+        }
+
+        .slide-photo.slide-img4 {
+            background-image: url('https://raw.githubusercontent.com/rettogotbugs/Happy-Birthday-Harshita/main/img4.jpg');
+            color: transparent;
         }
 
         .slide-text {
@@ -424,19 +464,19 @@
                 <h2>You're So Beautiful 📸</h2>
                 <div class="photo-album">
                     <div class="photo-frame">
-                        <div class="photo-placeholder">Her Selfie 1<br>📷</div>
+                        <div class="photo-placeholder img2">Her Selfie 1<br>📷</div>
                         <div class="photo-caption">My gorgeous girlfriend</div>
                     </div>
                     <div class="photo-frame">
-                        <div class="photo-placeholder">Her Selfie 2<br>📷</div>
+                        <div class="photo-placeholder img3">Her Selfie 2<br>📷</div>
                         <div class="photo-caption">Always stunning</div>
                     </div>
                     <div class="photo-frame">
-                        <div class="photo-placeholder">Baby Photo<br>👶</div>
+                        <div class="photo-placeholder img1">Baby Photo<br>👶</div>
                         <div class="photo-caption">Cute from day one</div>
                     </div>
                     <div class="photo-frame">
-                        <div class="photo-placeholder">Her Selfie 3<br>📷</div>
+                        <div class="photo-placeholder img4">Her Selfie 3<br>📷</div>
                         <div class="photo-caption">Perfect as always</div>
                     </div>
                 </div>
@@ -450,19 +490,19 @@
                 <h2>Special Slideshow 🎬</h2>
                 <div class="slideshow-container">
                     <div class="slide active">
-                        <div class="slide-photo">Her Beautiful Selfie 📷</div>
+                        <div class="slide-photo slide-img2">Her Beautiful Selfie 📷</div>
                         <div class="slide-text">You are the most amazing girlfriend anyone could ask for! 💕</div>
                     </div>
                     <div class="slide">
-                        <div class="slide-photo">Her Cute Baby Photo 👶</div>
+                        <div class="slide-photo slide-img1">Her Cute Baby Photo 👶</div>
                         <div class="slide-text">You were adorable then, and you're absolutely stunning now! 🌟</div>
                     </div>
                     <div class="slide">
-                        <div class="slide-photo">Another Gorgeous Selfie 📷</div>
+                        <div class="slide-photo slide-img3">Another Gorgeous Selfie 📷</div>
                         <div class="slide-text">Your smile lights up my world every single day! ✨</div>
                     </div>
                     <div class="slide">
-                        <div class="slide-photo">Perfect Selfie 📷</div>
+                        <div class="slide-photo slide-img4">Perfect Selfie 📷</div>
                         <div class="slide-text">I love you more than words can express, my darling! 💖</div>
                     </div>
                 </div>
@@ -575,34 +615,4 @@
             
             // Clear any intervals
             if (slideshowInterval) {
-                clearInterval(slideshowInterval);
-            }
-            
-            // Reset all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Reset slideshow
-            document.querySelectorAll('.slide').forEach((slide, index) => {
-                slide.classList.remove('active');
-                if (index === 0) slide.classList.add('active');
-            });
-            
-            // Show first page
-            document.getElementById('page1').classList.add('active');
-            
-            // Clear name input
-            document.getElementById('nameInput').value = '';
-            
-            // Reset love counter
-            document.getElementById('loveCounter').textContent = '0';
-        }
-
-        // Initialize floating hearts when page loads
-        window.addEventListener('load', () => {
-            createFloatingHearts();
-        });
-    </script>
-</body>
-    </html>
+                

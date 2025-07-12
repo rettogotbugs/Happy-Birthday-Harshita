@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Donaaa!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffeef7, #ffe0f0, #ffc2e0);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            min-height: 600px;
+        }
+
+        .page {
+            display: none;
+            padding: 40px 30px;
+            text-align: center;
+            min-height: 600px;
+            position: relative;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Name Entry Page */
+        .name-entry h1 {
+            font-size: 2.5rem;
+            color: #d63384;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .name-entry p {
+            font-size: 1.2rem;
+            color: #8b5a83;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #f8bbd9;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .name-input:focus {
+            border-color: #d63384;
+            box-shadow: 0 0 10px rgba(214, 51, 132, 0.3);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #d63384, #e83e8c);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(214, 51, 132, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.4);
+        }
+
+        /* Message Pages */
+        .message-page h2 {
+            font-size: 2rem;
+            color: #d63384;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .message-page p {
+            font-size: 1.3rem;
+            color: #8b5a83;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .heart {
+            font-size: 3rem;
+            color: #ff6b9d;
+            margin: 20px 0;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Love Counter */
+        .love-counter {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .counter-number {
+            font-size: 4rem;
+            color: #d63384;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: countUp 3s ease-in-out;
+        }
+
+        .infinity-symbol {
+            font-size: 6rem;
+            color: #ff6b9d;
+            font-weight: bold;
+            animation: infinityGlow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.6);
+            margin: 10px 0;
+        }
+
+        .overflow-text {
+            font-size: 1.2rem;
+            color: #8b5a83;
+            font-style: italic;
+            animation: fadeInUp 1s ease-in-out 3s both;
+        }
+
+        @keyframes countUp {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes infinityGlow {
+            0% { 
+                text-shadow: 0 0 20px rgba(255, 107, 157, 0.6);
+                transform: scale(1);
+            }
+            100% { 
+                text-shadow: 0 0 30px rgba(255, 107, 157, 0.9);
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* Photo Album */
+        .photo-album {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .photo-frame {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-frame:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(45deg, #ffeef7, #ffe0f0);
+            border: 2px dashed #f8bbd9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b5a83;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 5px;
+            background-image: url('img2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .photo-placeholder:nth-child(1) {
+            background-image: url('img2.jpg');
+        }
+
+        .photo-placeholder.baby-photo {
+            background-image: url('img1.jpg');
+        }
+
+        .photo-placeholder.selfie-3 {
+            background-image: url('img3.jpg');
+        }
+
+        .photo-placeholder.selfie-4 {
+            background-image: url('img4.jpg');
+        }
+
+        .photo-caption {
+            font-size: 0.8rem;
+            color: #8b5a83;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Slideshow */
+        .slideshow-container {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide-photo {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ffeef7, #ffe0f0);
+            border: 2px dashed #f8bbd9;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b5a83;
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 15px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide-photo.slide-img-2 {
+            background-image: url('img2.jpg');
+        }
+
+        .slide-photo.slide-img-1 {
+            background-image: url('img1.jpg');
+        }
+
+        .slide-photo.slide-img-3 {
+            background-image: url('img3.jpg');
+        }
+
+        .slide-photo.slide-img-4 {
+            background-image: url('img4.jpg');
+        }
+
+        .slide-text {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            color: #8b5a83;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .next-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #d63384, #e83e8c);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(214, 51, 132, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .next-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.4);
+        }
+
+        /* Audio Control */
+        .audio-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .audio-control:hover {
+            transform: scale(1.1);
+        }
+
+        /* Floating Hearts */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: #ff6b9d;
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Final Page */
+        .final-message {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .final-message h1 {
+            font-size: 2.5rem;
+            color: #d63384;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .final-message p {
+            font-size: 1.2rem;
+            color: #8b5a83;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .restart-btn {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="floating-hearts"></div>
+    
+    <button class="audio-control" onclick="toggleAudio()" id="audioBtn">🎵</button>
+    
+    <!-- Hidden audio element -->
+    <audio id="backgroundMusic" loop>
+        <source src="yung kai - wildflower.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <div class="container">
+        <!-- Page 1: Name Entry -->
+        <div class="page active" id="page1">
+            <div class="name-entry">
+                <h1>🎂 Happy Birthday! 🎂</h1>
+                <p>This is a special message for someone very special...</p>
+                <input type="text" class="name-input" id="nameInput" placeholder="Enter your name ✨">
+                <br>
+                <button class="btn" onclick="startJourney()">Let's Begin! 💕</button>
+            </div>
+        </div>
+
+        <!-- Page 2: Welcome Message -->
+        <div class="page" id="page2">
+            <div class="message-page">
+                <h2>This is a message from the person who <span style="color: #d63384;">loves you more</span> than anyone else in the world.</h2>
+                <div class="heart">💕</div>
+            </div>
+            <button class="next-btn" onclick="nextPage()">→</button>
+        </div>
+
+        <!-- Page 3: Love Counter -->
+        <div class="page" id="page3">
+            <div class="message-page">
+                <p>How much I love you:</p>
+                <div class="heart">💖</div>
+                <div class="love-counter">
+                    <div class="counter-number" id="loveCounter">0</div>
+                    <div class="infinity-symbol">∞</div>
+                    <div class="overflow-text">...and counting!</div>
+                </div>
+            </div>
+            <button class="next-btn" onclick="nextPage()">→</button>
+        </div>
+
+        <!-- Page 4: Sweet Message -->
+        <div class="page" id="page4">
+            <div class="message-page">
+                <div class="heart">💕</div>
+                <h2>Listen <span id="userName">Beautiful</span>,<br>I want to say something.</h2>
+                <p style="font-size: 1rem; color: #8b5a83;">🎵 [Background music plays here] 🎵</p>
+            </div>
+            <button class="next-btn" onclick="nextPage()">→</button>
+        </div>
+
+        <!-- Page 5: Photo Album -->
+        <div class="page" id="page5">
+            <div class="message-page">
+                <h2>You're So Beautiful 📸</h2>
+                <div class="photo-album">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">Her Selfie 1<br>📷</div>
+                        <div class="photo-caption">My gorgeous girlfriend</div>
+                    </div>
+                    <div class="photo-frame">
+                        <div class="photo-placeholder selfie-3">Her Selfie 2<br>📷</div>
+                        <div class="photo-caption">Always stunning</div>
+                    </div>
+                    <div class="photo-frame">
+                        <div class="photo-placeholder baby-photo">Baby Photo<br>👶</div>
+                        <div class="photo-caption">Cute from day one</div>
+                    </div>
+                    <div class="photo-frame">
+                        <div class="photo-placeholder selfie-4">Her Selfie 3<br>📷</div>
+                        <div class="photo-caption">Perfect as always</div>
+                    </div>
+                </div>
+            </div>
+            <button class="next-btn" onclick="nextPage()">→</button>
+        </div>
+
+        <!-- Page 6: Slideshow -->
+        <div class="page" id="page6">
+            <div class="message-page">
+                <h2>Special Slideshow 🎬</h2>
+                <div class="slideshow-container">
+                    <div class="slide active">
+                        <div class="slide-photo slide-img-2">Her Beautiful Selfie 📷</div>
+                        <div class="slide-text">You are the most amazing girlfriend anyone could ask for! 💕</div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-photo slide-img-1">Her Cute Baby Photo 👶</div>
+                        <div class="slide-text">You were adorable then, and you're absolutely stunning now! 🌟</div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-photo slide-img-3">Another Gorgeous Selfie 📷</div>
+                        <div class="slide-text">Your smile lights up my world every single day! ✨</div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-photo slide-img-4">Perfect Selfie 📷</div>
+                        <div class="slide-text">I love you more than words can express, my darling! 💖</div>
+                    </div>
+                </div>
+            </div>
+            <button class="next-btn" onclick="nextPage()">→</button>
+        </div>
+
+        <!-- Page 7: Final Message -->
+        <div class="page" id="page7">
+            <div class="final-message">
+                <h1>🎉 Happy Birthday! 🎉</h1>
+                <div class="heart">💕</div>
+                <p>By going through this experience, you have both consented to <span style="color: #d63384;">officially love each other for the rest of eternity.</span></p>
+                <div class="heart">💖</div>
+                <p>May your special day be filled with happiness, laughter, and all the love in the world!</p>
+                <br>
+                <button class="restart-btn" onclick="restartJourney()">Experience Again! 🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let totalPages = 7;
+        let userName = '';
+        let audioPlaying = false;
+        let slideshowInterval;
+        let currentSlide = 0;
+        let totalSlides = 4;
+        let backgroundMusic;
+
+        // Initialize audio
+        function initAudio() {
+            backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.volume = 0.5; // Set volume to 50%
+        }
+
+        // Create floating hearts
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('floating-hearts');
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '💕';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 7000);
+            }, 2000);
+        }
+
+        function startJourney() {
+            const nameInput = document.getElementById('nameInput');
+            userName = nameInput.value.trim();
+            
+            if (!userName) {
+                alert('Please enter your name first! 💕');
+                return;
+            }
+            
+            document.getElementById('userName').textContent = userName;
+            
+            // Start background music
+            if (!audioPlaying) {
+                playBackgroundMusic();
+            }
+            
+            nextPage();
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                document.getElementById('page' + currentPage).classList.remove('active');
+                currentPage++;
+                document.getElementById('page' + currentPage).classList.add('active');
+                
+                // Start love counter animation on page 3
+                if (currentPage === 3) {
+                    startLoveCounter();
+                }
+                
+                // Start slideshow on page 6
+                if (currentPage === 6) {
+                    startSlideshow();
+                }
+            }
+        }
+
+        function startLoveCounter() {
+            const counter = document.getElementById('loveCounter');
+            let count = 0;
+            const target = 999999999;
+            const increment = target / 100;
+            
+            const counterInterval = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                    counter.textContent = '999,999,999+';
+                    clearInterval(counterInterval);
+                    
+                    // Show infinity symbol after counter
+                    setTimeout(() => {
+                        counter.style.display = 'none';
+                    }, 1000);
+                } else {
+       
